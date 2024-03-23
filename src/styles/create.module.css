@@ -1,6 +1,6 @@
 .container {
-  position: relative;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -14,7 +14,7 @@
 
 .indexBox.expanded {
   position: absolute;
-  left: 10%;
+  left: 35%;
   top: 50%;
   transform: translateY(-50%);
   flex-direction: column;
@@ -26,9 +26,13 @@
   flex-direction: column;
   gap: 10px;
   top: 50%;
-  left: 50%;
+  left: 65%;
   transform: translate(-50%, -50%);
   color: white;
   padding: 20px;
   border-radius: 5px;
+}
+.selected {
+  background-color: #425cb1;
+  outline: 3px solid #182068;
 }

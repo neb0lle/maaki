@@ -3,73 +3,102 @@ import "@radix-ui/themes/styles.css";
 import { Button } from "@radix-ui/themes";
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../../../../styles/create.module.css";
+import styles from "@/styles/create.module.css";
 
 const Create = () => {
   const [isExpanded, setIsExpanded] = useState("");
   const [expandedButtons, setExpandedButtons] = useState([]);
+  const [selectedButtonIndex, setSelectedButtonIndex] = useState(null);
 
   const buttonData = {
     text: [
-      { label: "Token Classification", url: "./create/token-classification" },
-      { label: "Sentiment Analysis", url: "/sentiment-analysis" },
-      { label: "Named Entity Recognition Tagging", url: "/ner-tagging" },
-      { label: "Natural Language Understanding", url: "/nlu" },
+      { label: "Sentiment Analysis", url: "./create/sa" },
+      { label: "Named Entity Recognition Tagging", url: "./create/NERT" },
+      { label: "Natural Language Understanding", url: "./create/NLU" },
     ],
     image: [
       {
         label: "Single Label Classification",
-        url: "/single-label-classification",
+        url: "./create/slc",
       },
       {
         label: "Multi Label Classification",
-        url: "/multi-label-classification",
+        url: "./create/MLC",
       },
     ],
-    tabular: [],
-    video: [],
     audio: [],
+    video: [],
+    tabular: [],
   };
 
   const toggleExpansion = (type) => {
-    if (isExpanded == type) setIsExpanded("");
-    else setIsExpanded(type);
-    setExpandedButtons(buttonData[type]);
+    if (isExpanded === type) {
+      setIsExpanded("");
+      setSelectedButtonIndex(null);
+    } else {
+      setIsExpanded(type);
+      setExpandedButtons(buttonData[type]);
+    }
   };
-
+  const handleButtonClick = (type) => {
+    if (selectedButtonIndex === type) {
+      setSelectedButtonIndex(null);
+    } else {
+      setSelectedButtonIndex(type);
+    }
+  };
   return (
     <div className={styles.container}>
       <div
         className={`${styles.indexBox} ${isExpanded ? styles.expanded : ""}`}
       >
-        <Button size="3" variant="soft" onClick={() => toggleExpansion("text")}>
+        <Button
+          size="4"
+          variant="soft"
+          onClick={() => {
+            toggleExpansion("text");
+          }}
+          className={isExpanded === "text" ? styles.selected : ""}
+        >
           Text
         </Button>
         <Button
-          size="3"
+          size="4"
           variant="soft"
-          onClick={() => toggleExpansion("image")}
+          onClick={() => {
+            toggleExpansion("image");
+          }}
+          className={isExpanded === "image" ? styles.selected : ""}
         >
           Image
         </Button>
         <Button
-          size="3"
+          size="4"
           variant="soft"
-          onClick={() => toggleExpansion("audio")}
+          onClick={() => {
+            toggleExpansion("audio");
+          }}
+          className={isExpanded === "audio" ? styles.selected : ""}
         >
           Audio
         </Button>
         <Button
-          size="3"
+          size="4"
           variant="soft"
-          onClick={() => toggleExpansion("video")}
+          onClick={() => {
+            toggleExpansion("video");
+          }}
+          className={isExpanded === "video" ? styles.selected : ""}
         >
           Video
         </Button>
         <Button
-          size="3"
+          size="4"
           variant="soft"
-          onClick={() => toggleExpansion("tabular")}
+          onClick={() => {
+            toggleExpansion("tabular");
+          }}
+          className={isExpanded === "tabular" ? styles.selected : ""}
         >
           Tabular
         </Button>
@@ -79,9 +108,12 @@ const Create = () => {
           {expandedButtons.map((button, index) => (
             <Link key={index} href={button.url}>
               <Button
-                size="3"
+                size="4"
                 variant="soft"
-                onClick={() => console.log(`${button.label} clicked`)}
+                onClick={() => handleButtonClick(button.label)}
+                className={
+                  selectedButtonIndex === button.label ? styles.selected : ""
+                }
               >
                 {button.label}
               </Button>

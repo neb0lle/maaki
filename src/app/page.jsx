@@ -19,7 +19,7 @@ const App = () => {
         <Text>
           <HoverCard.Root>
             <HoverCard.Trigger>
-              <Button size="3" variant="soft">
+              <Button size="4" variant="soft">
                 <Link className={styles.link} href={`/model/${id}/create`}>
                   Create Model
                 </Link>
@@ -32,7 +32,7 @@ const App = () => {
             </HoverCard.Content>
           </HoverCard.Root>
         </Text>
-        <Button size="3" variant="soft">
+        <Button size="4" variant="soft">
           Use Model
         </Button>
       </div>
