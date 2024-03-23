@@ -1,0 +1,9 @@
+input_features:
+    - name: Image_Name
+      type: image
+      encoder: 
+        type: stacked_cnn
+
+output_features:
+    - name: Classes
+      type: set
