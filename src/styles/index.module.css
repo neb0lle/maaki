@@ -1,0 +1,19 @@
+.homeBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+.indexBox {
+  display: flex;
+  justify-content: space-around;
+  gap: 5rem;
+}
+.link {
+  text-decoration: none;
+}
+
+.link:visited {
+  color: #9eb1ff;
+}

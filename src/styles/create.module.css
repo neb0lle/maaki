@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.indexBox {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.indexBox.expanded {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
