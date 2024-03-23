@@ -5,18 +5,25 @@ import { useState } from "react";
 import styles from "../../../../styles/create.module.css";
 
 const Create = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState("");
   const [expandedButtons, setExpandedButtons] = useState([]);
 
   const buttonData = {
-    text: ["Text 1", "Text 2", "Text 3", "Text 4"],
-    audio: ["Audio 1", "Audio 2", "Audio 3", "Audio 4"],
-    image: ["Image 1", "Image 2", "Image 3", "Image 4"],
-    video: ["Video 1", "Video 2", "Video 3", "Video 4"],
+    text: [
+      "Token Classification",
+      "Sentiment Analysis",
+      "Named Entity Recognition Tagging",
+      "Natural Language Understanding",
+    ],
+    image: ["Single Label Classification", "Multi Label Classification"],
+    tabular: [],
+    video: [],
+    audio: [],
   };
 
   const toggleExpansion = (type) => {
-    setIsExpanded(!isExpanded);
+    if (isExpanded == type) setIsExpanded("");
+    else setIsExpanded(type);
     setExpandedButtons(buttonData[type]);
   };
 
@@ -31,13 +38,6 @@ const Create = () => {
         <Button
           size="3"
           variant="soft"
-          onClick={() => toggleExpansion("audio")}
-        >
-          Audio
-        </Button>
-        <Button
-          size="3"
-          variant="soft"
           onClick={() => toggleExpansion("image")}
         >
           Image
@@ -45,9 +45,23 @@ const Create = () => {
         <Button
           size="3"
           variant="soft"
+          onClick={() => toggleExpansion("audio")}
+        >
+          Audio
+        </Button>
+        <Button
+          size="3"
+          variant="soft"
           onClick={() => toggleExpansion("video")}
         >
           Video
+        </Button>
+        <Button
+          size="3"
+          variant="soft"
+          onClick={() => toggleExpansion("tabular")}
+        >
+          Tabular
         </Button>
       </div>
       {isExpanded && (
