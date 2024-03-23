@@ -2,6 +2,7 @@
 import "@radix-ui/themes/styles.css";
 import { Button } from "@radix-ui/themes";
 import { useState } from "react";
+import Link from "next/link";
 import styles from "../../../../styles/create.module.css";
 
 const Create = () => {
@@ -10,12 +11,21 @@ const Create = () => {
 
   const buttonData = {
     text: [
-      "Token Classification",
-      "Sentiment Analysis",
-      "Named Entity Recognition Tagging",
-      "Natural Language Understanding",
+      { label: "Token Classification", url: "./create/token-classification" },
+      { label: "Sentiment Analysis", url: "/sentiment-analysis" },
+      { label: "Named Entity Recognition Tagging", url: "/ner-tagging" },
+      { label: "Natural Language Understanding", url: "/nlu" },
     ],
-    image: ["Single Label Classification", "Multi Label Classification"],
+    image: [
+      {
+        label: "Single Label Classification",
+        url: "/single-label-classification",
+      },
+      {
+        label: "Multi Label Classification",
+        url: "/multi-label-classification",
+      },
+    ],
     tabular: [],
     video: [],
     audio: [],
@@ -66,15 +76,16 @@ const Create = () => {
       </div>
       {isExpanded && (
         <div className={styles.overlay}>
-          {expandedButtons.map((buttonLabel, index) => (
-            <Button
-              key={index}
-              size="3"
-              variant="soft"
-              onClick={() => console.log(`${buttonLabel} clicked`)}
-            >
-              {buttonLabel}
-            </Button>
+          {expandedButtons.map((button, index) => (
+            <Link key={index} href={button.url}>
+              <Button
+                size="3"
+                variant="soft"
+                onClick={() => console.log(`${button.label} clicked`)}
+              >
+                {button.label}
+              </Button>
+            </Link>
           ))}
         </div>
       )}

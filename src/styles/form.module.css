@@ -1,0 +1,120 @@
+.formcontainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 1%;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #cbd5e0;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.formgroup {
+  margin-bottom: 20px;
+}
+
+.formgroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #a09b9b;
+}
+.namefields {
+  display: flex;
+  gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .formgroup label {
+    font-size: 0.75rem;
+  }
+}
+.formgroup input:not(:placeholder-shown) {
+  background-color: #1c2432;
+  color: #ffffff;
+  font: bold;
+}
+.formgroup select:not(:placeholder-shown) {
+  background-color: #1c2432;
+  color: #ffffff;
+}
+
+.formgroup textarea:not(:placeholder-shown) {
+  background-color: #1c2432;
+  color: #ffffff;
+  font: bold;
+}
+
+.formgroup textarea::placeholder {
+  color: #889fae;
+}
+.namefields .formgroup {
+  flex: 1;
+}
+.formgroup input:focus {
+  background-color: #fff;
+  color: #333;
+}
+.formgroup textarea:focus {
+  background-color: #fff;
+  color: #333;
+}
+
+.formgroup select:focus {
+  background-color: #fff;
+  color: #333;
+}
+
+.formgroup date:focus {
+  background-color: #fff;
+  color: #333;
+}
+
+.formgroup input,
+.formgroup select,
+.formgroup textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #6b7280;
+}
+
+.formgroup .Button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #3293d3;
+}
+
+.Button:hover {
+  background-color: #2980b9;
+}
+
+/* .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+  }
+  
+  .alert-error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+  } */
