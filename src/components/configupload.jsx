@@ -1,21 +1,19 @@
 "use client";
 import { useState } from "react";
-import yaml from "js-yaml";
 
-export default function ConfigUpload() {
+export default function ConfigUpload({ projectname }) {
 	const [yamlData, setYamlData] = useState("");
-	const [otherData, setOtherData] = useState("");
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const formData = new FormData();
 		formData.append("yaml_data", yamlData);
-		formData.append("other_data", otherData);
+		formData.append("other_data", projectname.params.id);
 
 		try {
 			const response = await fetch(
-				"https://48b8-35-226-109-148.ngrok-free.app/create",
+				"https://3b40-34-134-48-70.ngrok-free.app/train",
 				{
 					method: "POST",
 					body: formData,
@@ -42,12 +40,6 @@ export default function ConfigUpload() {
 					placeholder="YAML Data"
 					rows={5}
 					cols={50}
-				/>
-				<input
-					type="text"
-					value={otherData}
-					onChange={(e) => setOtherData(e.target.value)}
-					placeholder="Other Data"
 				/>
 				<button type="submit">Submit</button>
 			</form>
