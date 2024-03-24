@@ -4,9 +4,9 @@ import subprocess
 from flask import Flask, request
 from pyngrok import ngrok
 from kaggle_secrets import UserSecretsClient
-# import pandas as pd
-# import numpy as np
-# from ludwig.visualize import learning_curves
+import pandas as pd
+import numpy as np
+from ludwig.visualize import learning_curves
 
 
 user_secrets = UserSecretsClient()
