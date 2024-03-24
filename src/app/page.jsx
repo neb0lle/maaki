@@ -58,9 +58,9 @@ const App = () => {
       />
     </Inset>
     <Text as="p" size="3">
-      <Strong>Create Model</Strong><br/> 
-      Make your own Model using<br/>
-      Our 0 experience algorithim 
+      <Strong>Use Model</Strong><br/> 
+      Run your models under test<br/>
+     cases 
     </Text>
   </Card>
 </Box>

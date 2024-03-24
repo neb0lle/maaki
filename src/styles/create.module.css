@@ -40,3 +40,13 @@
   background-color: #425cb1;
   outline: 3px solid #182068;
 }
+.boxes{
+    visibility:hidden;
+    height:0;
+    width:0;
+}
+.notSelected{
+    visibility:hidden;
+    height:0;
+    width:0;
+}

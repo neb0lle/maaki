@@ -15,7 +15,7 @@ const Create = () => {
         text: [
             { label: "Sentiment Analysis", url: "./create/sa" },
             { label: "Named Entity Recognition Tagging", url: "./create/nert" },
-            { label: "Natural Language Understanding", url: "./create/nlu" },
+            { label: "Text Classification", url: "./create/tc" },
         ],
         image: [
             {
@@ -54,45 +54,153 @@ const Create = () => {
                 <div
                     className={`${styles.indexBox} ${isExpanded ? styles.expanded : ""}`}
                 >
+                    <div
+                        onClick={() => {
+                            toggleExpansion("text");
+                        }}
+                        className={isExpanded == "" ? "" : styles.boxes}
+                    >
+                        <Box maxWidth="100px">
+                            <Card size="1">
+                                <Inset clip="padding-box" side="top" pb="current">
+                                    <img
+                                        src="/sushi3.png"
+                                        alt="Bold typography"
+                                        style={{
+                                            display: 'block',
+                                            height: 140,
+                                            width: '250px',
+                                            backgroundColor: 'var(--gray-5)',
+                                        }}
+                                    />
+                                </Inset>
+                                <Text as="p" size="3">
+                                    <Strong>Text</Strong><br />
+                                    Click to start making your own<br/> text model
+                                </Text>
+                            </Card>
+                        </Box>
+                    </div>
                     <Button
                         size="4"
                         variant="soft"
                         onClick={() => {
                             toggleExpansion("text");
                         }}
-                        className={isExpanded === "text" ? styles.selected : ""}
+                        className={isExpanded !="" ? "": styles.notSelected}
                     >
                         Text
                     </Button>
+                    <div
+                        onClick={() => {
+                            toggleExpansion("image");
+                        }}
+                        className={isExpanded == "" ? "" : styles.boxes}
+                    >
+                        <Box maxWidth="100px">
+                            <Card size="1">
+                                <Inset clip="padding-box" side="top" pb="current">
+                                    <img
+                                        src="/sushi4.png"
+                                        alt="Bold typography"
+                                        style={{
+                                            display: 'block',
+                                            height: 140,
+                                            width: '250px',
+                                            backgroundColor: 'var(--gray-5)',
+                                        }}
+                                    />
+                                </Inset>
+                                <Text as="p" size="3">
+                                    <Strong>Image</Strong><br />
+                                    Click to start making your own<br/> image model
+                                </Text>
+                            </Card>
+                        </Box>
+                    </div>
                     <Button
                         size="4"
                         variant="soft"
                         onClick={() => {
                             toggleExpansion("image");
                         }}
-                        className={isExpanded === "image" ? styles.selected : ""}
+                        className={isExpanded !="" ? "": styles.notSelected}
                     >
-                        Image
+                       Image 
                     </Button>
+                    <div
+                        onClick={() => {
+                            toggleExpansion("audio");
+                        }}
+                        className={isExpanded == "" ? "" : styles.boxes}
+                    >
+                        <Box maxWidth="100px">
+                            <Card size="1">
+                                <Inset clip="padding-box" side="top" pb="current">
+                                    <img
+                                        src="/sushi5.png"
+                                        alt="Bold typography"
+                                        style={{
+                                            display: 'block',
+                                            height: 140,
+                                            width: '250px',
+                                            backgroundColor: 'var(--gray-5)',
+                                        }}
+                                    />
+                                </Inset>
+                                <Text as="p" size="3">
+                                    <Strong>Audio</Strong><br />
+                                    Click to start making your own<br/> audio model
+                                </Text>
+                            </Card>
+                        </Box>
+                    </div>
                     <Button
                         size="4"
                         variant="soft"
                         onClick={() => {
                             toggleExpansion("audio");
                         }}
-                        className={isExpanded === "audio" ? styles.selected : ""}
+                        className={isExpanded !="" ? "": styles.notSelected}
                     >
-                        Audio
+                      Audio 
                     </Button>
+                    <div
+                        onClick={() => {
+                            toggleExpansion("tabular");
+                        }}
+                        className={isExpanded == "" ? "" : styles.boxes}
+                    >
+                        <Box maxWidth="100px">
+                            <Card size="1">
+                                <Inset clip="padding-box" side="top" pb="current">
+                                    <img
+                                        src="/sushi6.png"
+                                        alt="Bold typography"
+                                        style={{
+                                            display: 'block',
+                                            height: 140,
+                                            width: '250px',
+                                            backgroundColor: 'var(--gray-5)',
+                                        }}
+                                    />
+                                </Inset>
+                                <Text as="p" size="3">
+                                    <Strong>Tabular</Strong><br />
+                                    Click to start making your own<br/> tabular model
+                                </Text>
+                            </Card>
+                        </Box>
+                    </div>
                     <Button
                         size="4"
                         variant="soft"
                         onClick={() => {
                             toggleExpansion("tabular");
                         }}
-                        className={isExpanded === "tabular" ? styles.selected : ""}
+                        className={isExpanded !="" ? "": styles.notSelected}
                     >
-                        Tabular
+                     Tabular 
                     </Button>
                 </div>
                 {isExpanded && (
