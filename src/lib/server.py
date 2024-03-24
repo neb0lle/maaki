@@ -89,7 +89,30 @@ def sync_local_to_gcs(
 # ) else print("Failed to sync files.")
 
 
-@app.route("/create", methods=["POST"])
+def create_model(model):
+    df = pd.read_csv(f"./models/{model}/dataset.csv")
+    model = LudwigModel(config=f"./models/{model}/config.yaml")
+
+    df["split"] = np.random.randn(df.shape[0], 1)
+
+    df["Image_Name"] = "/kaggle/input/multi-label-dotslash/images/images/" + df[
+        "Image_Name"
+    ].astype(str)
+    df.columns = ["Image_Name", "Classes", "split"]
+    df.head()
+
+    msk = np.random.rand(len(df)) <= 0.7
+
+    train_df = df[msk]
+    test_df = df[~msk]
+
+    print("Training started...")
+    train_stats, preprocessed_data, output_directory = model.train(dataset=train_df)
+    print("Training completed!")
+    learning_curves(train_stats, output_feature_name="tags")
+
+
+@app.route("create", methods=["POST"])
 def create():
     yaml_data = request.form.get("yaml_data")
     other_data = request.form.get("other_data")
@@ -105,7 +128,15 @@ def create():
 def train_model():
     other_data = request.form.get("other_data")
     download_folder_from_gcs(bucket_name, other_data + "/", f"models/{other_data}/")
-    return "Model training started successfully"
+    create_model(model)
+    return ""
+
+
+@app.route("/evaluate", methods=["POST"])
+def evaluate():
+    other_data = request.form.get("other_data")
+
+    return ""
 
 
 threading.Thread(target=app.run, kwargs={"use_reloader": False, "debug": True}).start()

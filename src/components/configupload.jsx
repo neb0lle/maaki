@@ -13,7 +13,7 @@ export default function ConfigUpload({ projectname }) {
 
 		try {
 			const response = await fetch(
-				"https://3b40-34-134-48-70.ngrok-free.app/train",
+				"https://6af6-34-171-210-109.ngrok-free.app/create",
 				{
 					method: "POST",
 					body: formData,
@@ -24,6 +24,14 @@ export default function ConfigUpload({ projectname }) {
 				throw new Error("Failed to send data");
 			}
 
+			try {
+				const res = await fetch(
+					"https://6af6-34-171-210-109.ngrok-free.app/train",
+					{ method: "POST", body: formData },
+				);
+			} catch (error) {
+				console.error("Error Training data:", error);
+			}
 			console.log("Data sent successfully");
 		} catch (error) {
 			console.error("Error sending data:", error);
