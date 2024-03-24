@@ -11,7 +11,7 @@ export const UploadFile = async (form) => {
 		});
 		await storage
 			.bucket("dotslash")
-			.file(file.name)
+			.file(`${projectname}/` + file.name)
 			.save(Buffer.from(buffer));
 		return true;
 	} catch (error) {
