@@ -1,0 +1,17 @@
+.container {
+  height: 50vw;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.form {
+  margin: 20px;
+}
+
+.inputWrapper {
+  margin-bottom: 10px;
+}
+
+.input {
+  width: 600px;
+}
