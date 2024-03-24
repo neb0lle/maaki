@@ -1,42 +1,74 @@
 "use client";
+import "@/styles/stars.sass";
 import "@radix-ui/themes/styles.css";
+import styles from "@/styles/index.module.css";
 import {
-  Button,
-  Text,
-  HoverCard,
-  Avatar,
-  Flex,
-  Box,
-  Heading,
+    Button,
+    Text,
+    HoverCard,
+    Box,
+    Card,
+    Inset,
+    Strong,
 } from "@radix-ui/themes";
 import Link from "next/link";
-import styles from "../styles/index.module.css";
+import Header from "../../components/header";
 const id = "abcd";
 const App = () => {
-  return (
-    <div className={styles.homeBox}>
-      <div className={styles.indexBox}>
-        <Text>
-          <HoverCard.Root>
-            <HoverCard.Trigger>
-              <Button size="4" variant="soft">
-                <Link className={styles.link} href={`/model/${id}/create`}>
-                  Create Model
-                </Link>
-              </Button>
-            </HoverCard.Trigger>
-            <HoverCard.Content>
-              <Text size="2" style={{ maxWidth: 300 }} mt="3">
-                Create your own model using our cwazy Ml
-              </Text>
-            </HoverCard.Content>
-          </HoverCard.Root>
-        </Text>
-        <Button size="4" variant="soft">
-          Use Model
-        </Button>
-      </div>
-    </div>
-  );
+    return (
+        <div className={styles.home}>
+            <Header />
+            <div className={styles.indexBox}>
+                <div className={styles.homeBox}>
+                    <Link className={styles.link} href={`/model/${id}/create`}>
+                        <Box maxWidth="10px">
+                            <Card size="1">
+                                <Inset clip="padding-box" side="top" pb="current">
+                                    <img
+                                        src="/sushi1.png"
+                                        alt="Bold typography"
+                                        style={{
+                                            display: 'block',
+                                            height: 140,
+                                            width: '250px',
+                                            backgroundColor: 'var(--gray-5)',
+                                        }}
+                                    />
+                                </Inset>
+                                <Text as="p" size="3">
+                                    <Strong>Create Model</Strong><br />
+                                    Make your own Model using<br />
+                                    Our 0 experience algorithim
+                                </Text>
+                            </Card>
+                        </Box>
+                    </Link>
+                    <Link className={styles.link} href={`/model/${id}/create`}>
+                        <Box maxWidth="100px">
+                            <Card size="1">
+                                <Inset clip="padding-box" side="top" pb="current">
+                                    <img
+                                        src="/sushi2.png"
+                                        alt="Bold typography"
+                                        style={{
+                                            display: 'block',
+                                            height: 140,
+                                            width: '250px',
+                                            backgroundColor: 'var(--gray-5)',
+                                        }}
+                                    />
+                                </Inset>
+                                <Text as="p" size="3">
+                                    <Strong>Use Model</Strong><br />
+                                    Run your models under test<br />
+                                    cases
+                                </Text>
+                            </Card>
+                        </Box>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
 };
 export default App;
