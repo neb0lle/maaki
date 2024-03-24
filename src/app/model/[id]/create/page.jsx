@@ -71,12 +71,13 @@ const Create = () => {
                                             height: 140,
                                             width: '250px',
                                             backgroundColor: 'var(--gray-5)',
+                                            cursor: "pointer",
                                         }}
                                     />
                                 </Inset>
                                 <Text as="p" size="3">
                                     <Strong>Text</Strong><br />
-                                    Click to start making your own<br/> text model
+                                    Click to start making your own<br /> text model
                                 </Text>
                             </Card>
                         </Box>
@@ -87,7 +88,7 @@ const Create = () => {
                         onClick={() => {
                             toggleExpansion("text");
                         }}
-                        className={isExpanded !="" ? "": styles.notSelected}
+                        className={isExpanded != "" ? "" : styles.notSelected}
                     >
                         Text
                     </Button>
@@ -108,12 +109,13 @@ const Create = () => {
                                             height: 140,
                                             width: '250px',
                                             backgroundColor: 'var(--gray-5)',
+                                            cursor: "pointer",
                                         }}
                                     />
                                 </Inset>
                                 <Text as="p" size="3">
                                     <Strong>Image</Strong><br />
-                                    Click to start making your own<br/> image model
+                                    Click to start making your own<br /> image model
                                 </Text>
                             </Card>
                         </Box>
@@ -124,9 +126,9 @@ const Create = () => {
                         onClick={() => {
                             toggleExpansion("image");
                         }}
-                        className={isExpanded !="" ? "": styles.notSelected}
+                        className={isExpanded != "" ? "" : styles.notSelected}
                     >
-                       Image 
+                        Image
                     </Button>
                     <div
                         onClick={() => {
@@ -145,12 +147,13 @@ const Create = () => {
                                             height: 140,
                                             width: '250px',
                                             backgroundColor: 'var(--gray-5)',
+                                            cursor: "pointer",
                                         }}
                                     />
                                 </Inset>
                                 <Text as="p" size="3">
                                     <Strong>Audio</Strong><br />
-                                    Click to start making your own<br/> audio model
+                                    Click to start making your own<br /> audio model
                                 </Text>
                             </Card>
                         </Box>
@@ -161,9 +164,9 @@ const Create = () => {
                         onClick={() => {
                             toggleExpansion("audio");
                         }}
-                        className={isExpanded !="" ? "": styles.notSelected}
+                        className={isExpanded != "" ? "" : styles.notSelected}
                     >
-                      Audio 
+                        Audio
                     </Button>
                     <div
                         onClick={() => {
@@ -182,12 +185,13 @@ const Create = () => {
                                             height: 140,
                                             width: '250px',
                                             backgroundColor: 'var(--gray-5)',
+                                            cursor: "pointer",
                                         }}
                                     />
                                 </Inset>
                                 <Text as="p" size="3">
                                     <Strong>Tabular</Strong><br />
-                                    Click to start making your own<br/> tabular model
+                                    Click to start making your own<br /> tabular model
                                 </Text>
                             </Card>
                         </Box>
@@ -198,9 +202,9 @@ const Create = () => {
                         onClick={() => {
                             toggleExpansion("tabular");
                         }}
-                        className={isExpanded !="" ? "": styles.notSelected}
+                        className={isExpanded != "" ? "" : styles.notSelected}
                     >
-                     Tabular 
+                        Tabular
                     </Button>
                 </div>
                 {isExpanded && (
